@@ -1,0 +1,252 @@
+<html>
+
+<head>
+  <title>About OpenMLS - Revolutionizing Real Estate Data</title>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    header {
+      background: #35424a;
+      color: #ffffff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #e8491d 3px solid;
+    }
+
+    header a {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    header #branding {
+      float: left;
+    }
+
+    header #branding h1 {
+      margin: 0;
+    }
+
+    header nav {
+      float: right;
+      margin-top: 10px;
+    }
+
+    header .highlight,
+    header .current a {
+      color: #e8491d;
+      font-weight: bold;
+    }
+
+    header a:hover {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    #main {
+      padding: 30px 0;
+      background: #ffffff;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #e8491d;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container-timeline {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .container-timeline::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: #ffffff;
+      border: 4px solid #e8491d;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid #ffffff;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent #ffffff;
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid #ffffff;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #ffffff transparent transparent;
+    }
+
+    .right::after {
+      left: -16px;
+    }
+
+    .content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+    }
+
+    footer {
+      padding: 20px;
+      margin-top: 20px;
+      color: #ffffff;
+      background-color: #e8491d;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Open</span>MLS</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="current"><a href="/about">About</a></li>
+          <li><a href="/documentation">Documentation</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="main">
+    <div class="container">
+      <h1>About OpenMLS</h1>
+      <p>OpenMLS is a groundbreaking initiative to create an open-source Multiple Listing Service (MLS) platform. Our
+        mission is to democratize access to real estate data, foster innovation in the industry, and create a more
+        transparent and efficient property market.</p>
+
+      <h2>Our Vision</h2>
+      <p>We envision a world where real estate data is freely accessible, easily shareable, and not controlled by any
+        single entity. By creating an open-source MLS, we aim to:</p>
+      <ul>
+        <li>Reduce barriers to entry for new real estate technology startups</li>
+        <li>Improve data accuracy and consistency across the industry</li>
+        <li>Enable more advanced analytics and insights for property professionals and consumers</li>
+        <li>Foster collaboration between real estate professionals, developers, and data scientists</li>
+      </ul>
+
+      <h2>Our Story</h2>
+      <div class="timeline">
+        <div class="container-timeline left">
+          <div class="content">
+            <h2>2020</h2>
+            <p>OpenMLS project conceived by a group of real estate tech enthusiasts and open-source advocates.</p>
+          </div>
+        </div>
+        <div class="container-timeline right">
+          <div class="content">
+            <h2>2021</h2>
+            <p>Initial codebase developed and released on GitHub. First contributors join the project.</p>
+          </div>
+        </div>
+        <div class="container-timeline left">
+          <div class="content">
+            <h2>2022</h2>
+            <p>OpenMLS gains traction. First pilot implementation launched with a local real estate board.</p>
+          </div>
+        </div>
+        <div class="container-timeline right">
+          <div class="content">
+            <h2>2023</h2>
+            <p>Major version 1.0 released. OpenMLS begins to be adopted by multiple real estate associations and tech
+              companies.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Core Team</h2>
+      <p>OpenMLS is led by a diverse group of professionals passionate about open-source technology and real estate:</p>
+      <ul>
+        <li><strong>Sarah Chen</strong> - Project Lead, Full-stack Developer</li>
+        <li><strong>Michael Rodriguez</strong> - Real Estate Data Specialist</li>
+        <li><strong>Aisha Patel</strong> - UX/UI Designer</li>
+        <li><strong>David Nguyen</strong> - DevOps Engineer</li>
+        <li><strong>Emma Thompson</strong> - Real Estate Industry Liaison</li>
+      </ul>
+
+      <h2>Partners and Supporters</h2>
+      <p>OpenMLS is proud to be supported by forward-thinking organizations in the real estate and tech industries:</p>
+      <ul>
+        <li>TechHub Innovations</li>
+        <li>Future Home Realty Group</li>
+        <li>DataDrive Analytics</li>
+        <li>OpenSource Real Estate Association</li>
+      </ul>
+
+      <h2>Get Involved</h2>
+      <p>We're always looking for passionate individuals and organizations to join our mission. Whether you're a
+        developer, real estate professional, or data enthusiast, there's a place for you in the OpenMLS community.</p>
+      <p>Visit our <a href="/contribute">Contribute page</a> to learn more about how you can get involved.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>OpenMLS &copy; 2023 | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+</body>
+
+</html>
