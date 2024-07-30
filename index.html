@@ -1,135 +1,102 @@
-<html>
-
-<head>
-  <title>OpenMLS - The Open Source Multiple Listing Service</title>
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    .container {
-      width: 80%;
-      margin: auto;
-      overflow: hidden;
-      padding: 0 20px;
-    }
-
-    header {
-      background: #35424a;
-      color: #ffffff;
-      padding-top: 30px;
-      min-height: 70px;
-      border-bottom: #e8491d 3px solid;
-    }
-
-    header a {
-      color: #ffffff;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 16px;
-    }
-
-    header #branding {
-      float: left;
-    }
-
-    header #branding h1 {
-      margin: 0;
-    }
-
-    header nav {
-      float: right;
-      margin-top: 10px;
-    }
-
-    header .highlight,
-    header .current a {
-      color: #e8491d;
-      font-weight: bold;
-    }
-
-    header a:hover {
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    #showcase {
-      min-height: 400px;
-      background: url('https://opnls.com/images/showcase.jpg') no-repeat 0 -400px;
-      text-align: center;
-      color: #ffffff;
-    }
-
-    #showcase h1 {
-      margin-top: 100px;
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
-
-    #showcase p {
-      font-size: 20px;
-    }
-
-    #newsletter {
-      padding: 15px;
-      color: #ffffff;
-      background: #35424a;
-    }
-
-    #newsletter h1 {
-      float: left;
-    }
-
-    #newsletter form {
-      float: right;
-      margin-top: 15px;
-    }
-
-    #newsletter input[type="email"] {
-      padding: 4px;
-      height: 25px;
-      width: 250px;
-    }
-
-    .button_1 {
-      height: 38px;
-      background: #e8491d;
-      border: 0;
-      padding-left: 20px;
-      padding-right: 20px;
-      color: #ffffff;
-    }
-
-    #boxes {
-      margin-top: 20px;
-    }
-
-    #boxes .box {
-      float: left;
-      text-align: center;
-      width: 30%;
-      padding: 10px;
-    }
-
-    #boxes .box img {
-      width: 90px;
-    }
-
-    footer {
-      padding: 20px;
-      margin-top: 20px;
-      color: #ffffff;
-      background-color: #e8491d;
-      text-align: center;
-    }
-  </style>
+<html><head><base href="https://opnls.com/"><title>OpenMLS - Open Source Multiple Listing Service</title>
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  #showcase {
+    min-height: 400px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400"><rect width="1200" height="400" fill="%2335424a"/><path d="M0 200 Q 300 100 600 200 T 1200 200" stroke="%23e8491d" fill="none" stroke-width="5"/></svg>') no-repeat center center/cover;
+    text-align: center;
+    color: #ffffff;
+  }
+  #showcase h1 {
+    margin-top: 100px;
+    font-size: 55px;
+    margin-bottom: 10px;
+  }
+  #showcase p {
+    font-size: 20px;
+  }
+  #features {
+    margin-top: 20px;
+  }
+  .feature-box {
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+  }
+  .feature-box img {
+    width: 90px;
+    height: 90px;
+  }
+  #main {
+    padding: 20px 0;
+    background: #ffffff;
+  }
+  footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #e8491d;
+    text-align: center;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e8491d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .button:hover {
+    background: #ff6a3d;
+  }
+</style>
 </head>
-
 <body>
   <header>
     <div class="container">
@@ -142,6 +109,7 @@
           <li><a href="/about">About</a></li>
           <li><a href="/documentation">Documentation</a></li>
           <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
       </nav>
     </div>
@@ -149,84 +117,51 @@
 
   <section id="showcase">
     <div class="container">
-      <h1>Revolutionizing Real Estate Data</h1>
-      <p>OpenMLS: The first truly open-source Multiple Listing Service platform</p>
+      <h1>Welcome to OpenMLS</h1>
+      <p>The open-source revolution in real estate technology</p>
+      <a href="/get-started" class="button">Get Started</a>
     </div>
   </section>
 
-  <section id="newsletter">
+  <section id="features">
     <div class="container">
-      <h1>Subscribe To Our Newsletter</h1>
-      <form action="/subscribe" method="GET">
-        <input type="email" name="email" placeholder="Enter Email..." required>
-        <button type="submit" class="button_1">Subscribe</button>
-      </form>
+      <div class="feature-box">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8491d'><path d='M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z'/></svg>" alt="Open Source Icon">
+        <h3>Open Source</h3>
+        <p>Fully transparent and community-driven development</p>
+      </div>
+      <div class="feature-box">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8491d'><path d='M24 21h-24v-18h24v18zm-23-16.477v15.477h22v-15.477l-10.999 10-11.001-10zm21.089-.523h-20.176l10.088 9.171 10.088-9.171z'/></svg>" alt="Customizable Icon">
+        <h3>Customizable</h3>
+        <p>Tailor the platform to your specific needs</p>
+      </div>
+      <div class="feature-box">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8491d'><path d='M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 17h-12v-2h12v2zm0-4h-12v-2h12v2zm0-4h-12v-2h12v2z'/></svg>" alt="Feature-rich Icon">
+        <h3>Feature-rich</h3>
+        <p>Comprehensive tools for real estate professionals</p>
+      </div>
     </div>
   </section>
 
-  <section id="boxes">
+  <section id="main">
     <div class="container">
-      <div class="box">
-        <img src="https://opnls.com/images/open-source.png" alt="Open Source Icon">
-        <h3>100% Open Source</h3>
-        <p>Our codebase is entirely open-source, encouraging collaboration and transparency in the real estate industry.
-        </p>
-      </div>
-      <div class="box">
-        <img src="https://opnls.com/images/community.png" alt="Community Icon">
-        <h3>Community Driven</h3>
-        <p>Join a growing community of developers, real estate professionals, and tech enthusiasts shaping the future of
-          property data.</p>
-      </div>
-      <div class="box">
-        <img src="https://opnls.com/images/api.png" alt="API Icon">
-        <h3>RESTful API</h3>
-        <p>Integrate OpenMLS into your applications with our comprehensive and well-documented API.</p>
-      </div>
+      <h2>Revolutionize Your Real Estate Business with OpenMLS</h2>
+      <p>OpenMLS is a cutting-edge, open-source multiple listing service platform designed to empower real estate professionals and organizations. Our mission is to provide a flexible, robust, and transparent solution that adapts to the ever-changing landscape of the real estate industry.</p>
+      <p>With OpenMLS, you gain access to:</p>
+      <ul>
+        <li>A powerful property listing management system</li>
+        <li>Advanced search and filtering capabilities</li>
+        <li>Customizable data fields and report generation</li>
+        <li>Integration with popular real estate tools and services</li>
+        <li>A vibrant community of developers and real estate professionals</li>
+      </ul>
+      <p>Join the OpenMLS community today and take control of your MLS technology!</p>
+      <a href="/documentation" class="button">Explore Features</a>
     </div>
   </section>
-
-  <div class="container">
-    <h2>Why OpenMLS?</h2>
-    <p>OpenMLS is revolutionizing the real estate industry by providing a free, open-source alternative to traditional
-      Multiple Listing Services. Our platform aims to democratize access to property data, foster innovation, and create
-      a more transparent real estate market.</p>
-
-    <h3>Key Features:</h3>
-    <ul>
-      <li>Customizable listing input forms</li>
-      <li>Advanced search capabilities</li>
-      <li>Property history tracking</li>
-      <li>Integration with mapping services</li>
-      <li>Mobile-responsive design</li>
-      <li>Data export in multiple formats</li>
-      <li>User roles and permissions management</li>
-    </ul>
-
-    <h3>Get Involved</h3>
-    <p>OpenMLS thrives on community contributions. Whether you're a developer, real estate professional, or just
-      passionate about open data, there are many ways to get involved:</p>
-    <ul>
-      <li>Contribute code on <a href="https://github.com/openmls/openmls">GitHub</a></li>
-      <li>Report bugs and suggest features</li>
-      <li>Improve documentation</li>
-      <li>Help with translations</li>
-      <li>Spread the word about OpenMLS</li>
-    </ul>
-
-    <h3>Upcoming Features</h3>
-    <p>We're constantly working to improve OpenMLS. Here's what's on our roadmap:</p>
-    <ul>
-      <li>Blockchain integration for secure transaction records</li>
-      <li>AI-powered property valuation tools</li>
-      <li>Virtual tour integration</li>
-      <li>Enhanced analytics dashboard</li>
-    </ul>
-  </div>
 
   <footer>
     <p>OpenMLS &copy; 2023 | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
   </footer>
 </body>
-
 </html>
