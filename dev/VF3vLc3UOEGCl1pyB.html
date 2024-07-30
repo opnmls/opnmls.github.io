@@ -1,0 +1,260 @@
+<html><head><base href="https://opnls.com/documentation/security"><title>OpenMLS Security Guide</title>
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .content {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h1, h2, h3 {
+    color: #35424a;
+  }
+  code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    white-space: pre-wrap;
+  }
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  .alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+  }
+  .alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background: #35424a;
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Open</span>MLS</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li class="current"><a href="/documentation">Documentation</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <h1>OpenMLS Security Guide</h1>
+      
+      <div class="alert alert-info">
+        <strong>Note:</strong> This guide provides an overview of security features and best practices for OpenMLS. Always ensure you're using the latest version and following current security standards.
+      </div>
+
+      <h2>1. Authentication and Authorization</h2>
+      <p>OpenMLS implements a robust authentication and authorization system:</p>
+      <ul>
+        <li><strong>Multi-factor Authentication (MFA):</strong> Enable MFA for all user accounts to add an extra layer of security.</li>
+        <li><strong>Role-Based Access Control (RBAC):</strong> Define and manage user roles with granular permissions.</li>
+        <li><strong>OAuth 2.0 and OpenID Connect:</strong> Support for industry-standard authentication protocols.</li>
+      </ul>
+      <p>Configuration example:</p>
+      <code>
+// Enable MFA in config/security.js
+module.exports = {
+  mfa: {
+    enabled: true,
+    method: 'totp' // Time-based One-Time Password
+  },
+  oauth: {
+    enabled: true,
+    providers: ['google', 'facebook']
+  }
+};
+      </code>
+
+      <h2>2. Data Encryption</h2>
+      <p>OpenMLS ensures data protection through encryption:</p>
+      <ul>
+        <li><strong>Encryption at Rest:</strong> All sensitive data is encrypted before being stored in the database.</li>
+        <li><strong>Encryption in Transit:</strong> All API communications use HTTPS with TLS 1.3.</li>
+        <li><strong>Key Management:</strong> Utilize a secure key management system for handling encryption keys.</li>
+      </ul>
+      <p>Example of enabling encryption:</p>
+      <code>
+// In config/database.js
+module.exports = {
+  encryption: {
+    enabled: true,
+    algorithm: 'aes-256-gcm'
+  }
+};
+      </code>
+
+      <h2>3. Input Validation and Sanitization</h2>
+      <p>To prevent injection attacks and ensure data integrity:</p>
+      <ul>
+        <li>Validate all user inputs on both client and server side.</li>
+        <li>Use parameterized queries to prevent SQL injection.</li>
+        <li>Sanitize data before displaying it to prevent XSS attacks.</li>
+      </ul>
+      <p>Example of input validation:</p>
+      <code>
+const { body, validationResult } = require('express-validator');
+
+app.post('/api/listing', [
+  body('title').isLength({ min: 5 }).trim().escape(),
+  body('price').isNumeric(),
+  body('description').isLength({ max: 1000 }).trim().escape()
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  // Process the valid input
+});
+      </code>
+
+      <h2>4. API Security</h2>
+      <p>Secure your API endpoints:</p>
+      <ul>
+        <li>Implement rate limiting to prevent abuse.</li>
+        <li>Use JSON Web Tokens (JWT) for stateless authentication.</li>
+        <li>Set appropriate CORS policies.</li>
+      </ul>
+      <p>Example of implementing rate limiting:</p>
+      <code>
+const rateLimit = require("express-rate-limit");
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+
+app.use("/api/", apiLimiter);
+      </code>
+
+      <h2>5. Security Headers</h2>
+      <p>Set appropriate security headers to protect against common web vulnerabilities:</p>
+      <ul>
+        <li>Content Security Policy (CSP)</li>
+        <li>X-XSS-Protection</li>
+        <li>X-Frame-Options</li>
+        <li>Strict-Transport-Security (HSTS)</li>
+      </ul>
+      <p>Example of setting security headers:</p>
+      <code>
+const helmet = require('helmet');
+app.use(helmet());
+      </code>
+
+      <h2>6. Regular Security Audits and Updates</h2>
+      <p>Maintain the security of your OpenMLS installation:</p>
+      <ul>
+        <li>Regularly update OpenMLS and all dependencies to the latest versions.</li>
+        <li>Conduct periodic security audits and penetration testing.</li>
+        <li>Monitor security mailing lists and forums for potential vulnerabilities.</li>
+      </ul>
+
+      <h2>7. Logging and Monitoring</h2>
+      <p>Implement comprehensive logging and monitoring:</p>
+      <ul>
+        <li>Log all security-relevant events (login attempts, data access, etc.).</li>
+        <li>Use a secure, centralized logging system.</li>
+        <li>Set up alerts for suspicious activities.</li>
+      </ul>
+      <p>Example of security logging:</p>
+      <code>
+const winston = require('winston');
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  defaultMeta: { service: 'user-service' },
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+});
+
+// Log security events
+logger.info('User logged in', { userId: user.id, ip: req.ip });
+      </code>
+
+      <div class="alert alert-warning">
+        <strong>Warning:</strong> While OpenMLS provides robust security features, it's crucial to tailor these to your specific deployment environment and keep all systems updated.
+      </div>
+
+      <p>For more detailed information on each of these topics, please refer to our in-depth security documentation or contact our support team.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>OpenMLS &copy; 2023 | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+</body>
+</html>

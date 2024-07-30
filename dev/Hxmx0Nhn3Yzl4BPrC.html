@@ -1,0 +1,264 @@
+<html><head><base href="https://opnls.com/documentation"><title>OpenMLS Documentation</title>
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .sidebar {
+    width: 250px;
+    background: #fff;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .content {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  .sidebar ul li a:hover {
+    color: #e8491d;
+  }
+  h1, h2, h3 {
+    color: #35424a;
+  }
+  code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    white-space: pre-wrap;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background: #35424a;
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Open</span>MLS</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li class="current"><a href="/documentation">Documentation</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Documentation</h3>
+      <ul>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#api-reference">API Reference</a></li>
+        <li><a href="#data-models">Data Models</a></li>
+        <li><a href="#custom-fields">Custom Fields</a></li>
+        <li><a href="#search-functionality">Search Functionality</a></li>
+        <li><a href="#integrations">Integrations</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h1>OpenMLS Documentation</h1>
+      
+      <section id="getting-started">
+        <h2>Getting Started</h2>
+        <p>Welcome to OpenMLS! This guide will help you set up and start using our open-source multiple listing service platform.</p>
+        <p>OpenMLS is designed to be flexible and customizable, allowing you to create a robust real estate listing system that fits your specific needs.</p>
+      </section>
+
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>To install OpenMLS, follow these steps:</p>
+        <ol>
+          <li>Clone the repository: <code>git clone https://github.com/openmls/openmls.git</code></li>
+          <li>Navigate to the project directory: <code>cd openmls</code></li>
+          <li>Install dependencies: <code>npm install</code></li>
+          <li>Set up the database (instructions for PostgreSQL):
+            <code>
+createdb openmls
+psql -d openmls -f schema.sql
+            </code>
+          </li>
+          <li>Configure your environment variables (copy .env.example to .env and edit as needed)</li>
+          <li>Start the server: <code>npm start</code></li>
+        </ol>
+      </section>
+
+      <section id="configuration">
+        <h2>Configuration</h2>
+        <p>OpenMLS can be configured through the <code>.env</code> file. Key configuration options include:</p>
+        <ul>
+          <li>Database connection details</li>
+          <li>API keys for third-party services</li>
+          <li>Email settings for notifications</li>
+          <li>Custom field definitions</li>
+        </ul>
+        <p>For a full list of configuration options, see our <a href="/documentation/configuration">detailed configuration guide</a>.</p>
+      </section>
+
+      <section id="api-reference">
+        <h2>API Reference</h2>
+        <p>OpenMLS provides a RESTful API for integrating with other systems. Key endpoints include:</p>
+        <ul>
+          <li><code>GET /api/listings</code>: Retrieve listings</li>
+          <li><code>POST /api/listings</code>: Create a new listing</li>
+          <li><code>PUT /api/listings/:id</code>: Update a listing</li>
+          <li><code>DELETE /api/listings/:id</code>: Delete a listing</li>
+        </ul>
+        <p>For full API documentation, including request/response formats, visit our <a href="/documentation/api">API Reference</a>.</p>
+      </section>
+
+      <section id="data-models">
+        <h2>Data Models</h2>
+        <p>OpenMLS uses the following core data models:</p>
+        <ul>
+          <li>Listing</li>
+          <li>Property</li>
+          <li>Agent</li>
+          <li>Office</li>
+          <li>Transaction</li>
+        </ul>
+        <p>Each model can be extended with custom fields. See our <a href="/documentation/data-models">Data Models guide</a> for detailed information.</p>
+      </section>
+
+      <section id="custom-fields">
+        <h2>Custom Fields</h2>
+        <p>OpenMLS allows you to define custom fields for any data model. To add a custom field:</p>
+        <ol>
+          <li>Navigate to the Admin panel</li>
+          <li>Select "Custom Fields" from the menu</li>
+          <li>Choose the model you want to extend</li>
+          <li>Define your new field (name, type, validation rules, etc.)</li>
+        </ol>
+        <p>Custom fields are automatically added to the database schema and API responses.</p>
+      </section>
+
+      <section id="search-functionality">
+        <h2>Search Functionality</h2>
+        <p>OpenMLS provides powerful search capabilities, including:</p>
+        <ul>
+          <li>Full-text search across all fields</li>
+          <li>Geospatial queries for location-based searches</li>
+          <li>Advanced filtering and sorting options</li>
+          <li>Saved searches and alerts</li>
+        </ul>
+        <p>For details on implementing and customizing search, see our <a href="/documentation/search">Search guide</a>.</p>
+      </section>
+
+      <section id="integrations">
+        <h2>Integrations</h2>
+        <p>OpenMLS can integrate with various third-party services and tools, including:</p>
+        <ul>
+          <li>IDX/RETS feeds</li>
+          <li>CRM systems</li>
+          <li>Mapping services</li>
+          <li>Document management systems</li>
+        </ul>
+        <p>Check our <a href="/documentation/integrations">Integrations guide</a> for setup instructions and best practices.</p>
+      </section>
+
+      <section id="security">
+        <h2>Security</h2>
+        <p>Security is a top priority in OpenMLS. Key security features include:</p>
+        <ul>
+          <li>Role-based access control</li>
+          <li>Data encryption at rest and in transit</li>
+          <li>Two-factor authentication</li>
+          <li>Audit logging</li>
+        </ul>
+        <p>For more information on securing your OpenMLS installation, refer to our <a href="/documentation/security">Security guide</a>.</p>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <p>If you encounter issues while using OpenMLS, try these steps:</p>
+        <ol>
+          <li>Check the application logs for error messages</li>
+          <li>Verify your configuration settings</li>
+          <li>Ensure all dependencies are up to date</li>
+          <li>Consult our <a href="/documentation/troubleshooting">Troubleshooting guide</a></li>
+        </ol>
+        <p>If you still need help, don't hesitate to reach out to our community on the <a href="https://github.com/openmls/openmls/issues">GitHub issues page</a> or our <a href="https://community.openmls.com">community forum</a>.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>OpenMLS &copy; 2023 | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+</body>
+</html>

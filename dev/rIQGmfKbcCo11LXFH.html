@@ -1,0 +1,196 @@
+<html><head><base href="https://relix.ai#make%20it%20developer%20focused"><title>Relix AI - Developer-Centric Real Estate Platform</title>
+<style>
+  body {
+    font-family: 'Fira Code', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #252526;
+    color: #569cd6;
+    text-align: center;
+    padding: 60px 0;
+  }
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  .tagline {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #9cdcfe;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: #4ec9b0;
+    color: #1e1e1e;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .cta-button:hover {
+    background-color: #3da691;
+  }
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  .feature {
+    flex-basis: calc(50% - 20px);
+    background-color: #252526;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .feature h3 {
+    color: #569cd6;
+  }
+  pre {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto;
+  }
+  code {
+    font-family: 'Fira Code', monospace;
+    color: #ce9178;
+  }
+  .api-section {
+    margin-top: 50px;
+  }
+  .email-form {
+    margin-top: 30px;
+  }
+  .email-input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    background-color: #333;
+    color: #d4d4d4;
+  }
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #4ec9b0;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+  }
+  footer {
+    background-color: #252526;
+    color: #d4d4d4;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Relix AI</h1>
+      <p class="tagline">Empowering Developers with AI-Driven Real Estate APIs</p>
+      <a href="#signup" class="cta-button">Get API Access</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="features">
+      <div class="feature">
+        <h3>RESTful API</h3>
+        <p>Access our powerful real estate data and AI models through a simple, developer-friendly RESTful API.</p>
+        <pre><code>
+GET /api/v1/properties?location=san-francisco&type=apartment
+Authorization: Bearer YOUR_API_KEY
+        </code></pre>
+      </div>
+      <div class="feature">
+        <h3>Real-Time WebSocket Streams</h3>
+        <p>Stay updated with real-time property listings and market changes using our WebSocket API.</p>
+        <pre><code>
+const socket = new WebSocket('wss://api.relix.ai/v1/stream');
+socket.onmessage = (event) => {
+  console.log('New listing:', JSON.parse(event.data));
+};
+        </code></pre>
+      </div>
+      <div class="feature">
+        <h3>AI-Powered Property Valuation</h3>
+        <p>Leverage our machine learning models to get accurate property valuations.</p>
+        <pre><code>
+POST /api/v1/valuation
+Content-Type: application/json
+
+{
+  "address": "123 Main St, Anytown, USA",
+  "sqft": 1500,
+  "bedrooms": 3,
+  "bathrooms": 2
+}
+        </code></pre>
+      </div>
+      <div class="feature">
+        <h3>GraphQL Support</h3>
+        <p>Query exactly what you need with our flexible GraphQL API.</p>
+        <pre><code>
+query {
+  property(id: "123abc") {
+    address
+    price
+    features {
+      bedrooms
+      bathrooms
+    }
+    nearbyAmenities(radius: 1000) {
+      name
+      type
+      distance
+    }
+  }
+}
+        </code></pre>
+      </div>
+    </div>
+
+    <div class="api-section">
+      <h2>API Documentation</h2>
+      <p>Explore our comprehensive API docs to integrate Relix AI into your applications:</p>
+      <ul>
+        <li><a href="/docs/api">API Reference</a></li>
+        <li><a href="/docs/sdk">SDKs &amp; Libraries</a></li>
+        <li><a href="/docs/tutorials">Tutorials &amp; Guides</a></li>
+      </ul>
+    </div>
+
+    <div id="signup" class="email-form">
+      <h2>Get Early API Access</h2>
+      <p>Sign up for our developer beta program:</p>
+      <form action="/developer-signup" method="GET">
+        <input type="email" name="email" placeholder="Enter your email" required class="email-input">
+        <button type="submit" class="submit-button">Request Access</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Relix AI. All rights reserved.</p>
+      <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a> | <a href="/github">GitHub</a></p>
+    </div>
+  </footer>
+</body></html>

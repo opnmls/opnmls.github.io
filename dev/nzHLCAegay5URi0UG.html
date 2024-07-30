@@ -1,0 +1,305 @@
+<html><head><base href="https://email-list.com/subscribers"><title>Email-List.com - Subscriber Management</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .menu {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .menu li {
+    margin-bottom: 15px;
+  }
+
+  .menu a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+
+  .menu a:hover {
+    color: #3498db;
+  }
+
+  .menu i {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .search-add {
+    display: flex;
+    gap: 15px;
+  }
+
+  .search-bar {
+    display: flex;
+  }
+
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+  }
+
+  .search-button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+
+  .add-subscriber {
+    padding: 10px 15px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  .status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .active {
+    background-color: #e1f7e1;
+    color: #2ecc71;
+  }
+
+  .unsubscribed {
+    background-color: #fde8e8;
+    color: #e74c3c;
+  }
+
+  .bounced {
+    background-color: #fff5e6;
+    color: #f39c12;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .edit {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .delete {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .pagination button.active {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">Email-List.com</div>
+      <ul class="menu">
+        <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="/campaigns"><i class="fas fa-envelope"></i> Campaigns</a></li>
+        <li><a href="/subscribers"><i class="fas fa-users"></i> Subscribers</a></li>
+        <li><a href="/templates"><i class="fas fa-paint-brush"></i> Templates</a></li>
+        <li><a href="/analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+        <li><a href="/integrations"><i class="fas fa-plug"></i> Integrations</a></li>
+        <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h1 class="page-title">Subscriber Management</h1>
+        <div class="search-add">
+          <form class="search-bar" action="/subscribers/search" method="GET">
+            <input type="text" name="query" placeholder="Search subscribers..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+          </form>
+          <button class="add-subscriber">Add Subscriber</button>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Date Subscribed</th>
+            <th>Status</th>
+            <th>Lists</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d47424543034942486d48554c405d4148034e4240">[email&#160;protected]</a></td>
+            <td>John Doe</td>
+            <td>2023-05-15</td>
+            <td><span class="status active">Active</span></td>
+            <td>Newsletter, Promotions</td>
+            <td class="actions">
+              <button class="action-button edit">Edit</button>
+              <button class="action-button delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593338373c772a34302d31193c21383429353c773a3634">[email&#160;protected]</a></td>
+            <td>Jane Smith</td>
+            <td>2023-04-22</td>
+            <td><span class="status active">Active</span></td>
+            <td>Newsletter</td>
+            <td class="actions">
+              <button class="action-button edit">Edit</button>
+              <button class="action-button delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81ece8eae4afebeee9eff2eeefc1e4f9e0ecf1ede4afe2eeec">[email&#160;protected]</a></td>
+            <td>Mike Johnson</td>
+            <td>2023-03-10</td>
+            <td><span class="status unsubscribed">Unsubscribed</span></td>
+            <td>Promotions</td>
+            <td class="actions">
+              <button class="action-button edit">Edit</button>
+              <button class="action-button delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8dbc9dac9c086dfc1c4c4c1c9c5dbe8cdd0c9c5d8c4cd86cbc7c5">[email&#160;protected]</a></td>
+            <td>Sarah Williams</td>
+            <td>2023-06-01</td>
+            <td><span class="status active">Active</span></td>
+            <td>Newsletter, Product Updates</td>
+            <td class="actions">
+              <button class="action-button edit">Edit</button>
+              <button class="action-button delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2d6d3c4dbd69cd0c0ddc5dcf2d7cad3dfc2ded79cd1dddf">[email&#160;protected]</a></td>
+            <td>David Brown</td>
+            <td>2023-05-28</td>
+            <td><span class="status bounced">Bounced</span></td>
+            <td>Newsletter</td>
+            <td class="actions">
+              <button class="action-button edit">Edit</button>
+              <button class="action-button delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button>Previous</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>Next</button>
+      </div>
+    </div>
+  </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
